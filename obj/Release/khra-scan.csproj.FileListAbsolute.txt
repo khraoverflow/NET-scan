@@ -1,0 +1,5 @@
+C:\Users\brahmi\source\repos\khra-scan\bin\Release\khra-scan.exe
+C:\Users\brahmi\source\repos\khra-scan\bin\Release\khra-scan.pdb
+C:\Users\brahmi\source\repos\khra-scan\obj\Release\khra-scan.csproj.CoreCompileInputs.cache
+C:\Users\brahmi\source\repos\khra-scan\obj\Release\khra-scan.exe
+C:\Users\brahmi\source\repos\khra-scan\obj\Release\khra-scan.pdb
