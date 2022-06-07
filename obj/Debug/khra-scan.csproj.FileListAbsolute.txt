@@ -1,6 +1,0 @@
-C:\Users\brahmi\source\repos\khra-scan\bin\Debug\khra-scan.exe
-C:\Users\brahmi\source\repos\khra-scan\bin\Debug\khra-scan.pdb
-C:\Users\brahmi\source\repos\khra-scan\obj\Debug\khra-scan.csproj.CoreCompileInputs.cache
-C:\Users\brahmi\source\repos\khra-scan\obj\Debug\khra-scan.exe
-C:\Users\brahmi\source\repos\khra-scan\obj\Debug\khra-scan.pdb
-C:\Users\brahmi\source\repos\khra-scan\obj\Debug\khra-scan.csproj.AssemblyReference.cache
