@@ -31,5 +31,4 @@ BUT .. as some are lazy enough to not do that and willing to run a random .exe f
 - clean the ugliness (made in few minutes in a hurry sorry xD)
 - scan from CIDR
 - add port scan
-- host discovery with UDP broadcast ?
 - make as dll for dynamic assembly loading
