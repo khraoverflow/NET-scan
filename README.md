@@ -1,4 +1,4 @@
-# khra-scan
+# NET-scan
 .NET cli multi threaded host discovery tool.
 
 scans a subnet range for a specific port and report hosts having that port open
