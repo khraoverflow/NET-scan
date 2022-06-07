@@ -22,12 +22,14 @@ namespace khra_scan
 
             //HostScan scanner = new HostScan(args[1], args[2], args[3], int.Parse(args[4]), int.Parse(args[5]));
 
+            if(args.Length != 8)
+            {
+                Console.WriteLine("arguments error");
+                Environment.Exit(0);
+            }
             HostScan scanner = new HostScan(args[1], args[2], args[3], args[4], args[5], int.Parse(args[6]), int.Parse(args[7]));
 
-            //if (args.Length > 1)
-            //    scanner.test();
-            //else
-            //    
+   
 
             scanner.start(int.Parse(args[0]));
         }

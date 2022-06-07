@@ -1,0 +1,7 @@
+C:\Users\brahmi\source\repos\NET-scan\bin\Debug\khra-scan.exe.config
+C:\Users\brahmi\source\repos\NET-scan\bin\Debug\khra-scan.exe
+C:\Users\brahmi\source\repos\NET-scan\bin\Debug\khra-scan.pdb
+C:\Users\brahmi\source\repos\NET-scan\obj\Debug\khra-scan.csproj.AssemblyReference.cache
+C:\Users\brahmi\source\repos\NET-scan\obj\Debug\khra-scan.csproj.CoreCompileInputs.cache
+C:\Users\brahmi\source\repos\NET-scan\obj\Debug\khra-scan.exe
+C:\Users\brahmi\source\repos\NET-scan\obj\Debug\khra-scan.pdb
