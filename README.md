@@ -15,12 +15,18 @@ khra-scan.exe 200 192.168. 135 235 1 254 445 3
     port 445
     timeout 3 seconds
 ```
-# release :
+# release and usage :
 
-i highly recommand compiling your own executables from code :
+drop the khra-scan.exe on one a machine you have a shell on and use the args above to start the scan.
+
+i highly recommand compiling your own executables from code in VS studio :
+
 compile with NET 3.5 for windows 7
-        and NET 4.5 for windows 10
- BUT .. as some are lazy enough to not do that and willing to run a random .exe from the internet there's the release folder.
+and NET 4.5 for windows 10
+
+
+BUT .. as some are lazy enough to not do that and willing to run a random .exe from the internet there's the release folder.
+ 
 # todo list:
 - clean the ugliness (made in few minutes in a hurry sorry xD)
 - scan from CIDR
