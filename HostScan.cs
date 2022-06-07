@@ -58,14 +58,6 @@ namespace khra_scan
         public void scan()
         {
 
-            // temp val
-            //this.subnet = "192.168.1";
-            //this.start_address = "1";
-            //this.end_address = "11";
-            
-            //int current;
-
-            //while((current = Current_Counter()) != "f")
             string current;
 
             while ((current = Current_Counter()) != "f")
@@ -73,12 +65,11 @@ namespace khra_scan
                 
                 Thread.Sleep(5);
                 
-                //Console.WriteLine("Chost: " + current);
+               
                 try
                 {
-                    //Console.WriteLine(subnet + current + "timeout : " + timeout);
                     Connect(subnet + current, port, timeout);
-                    //Connect2(subnet+current, port, timeout);
+
                 }
                 catch
                 {
@@ -92,20 +83,13 @@ namespace khra_scan
 
             if (Interlocked.Decrement(ref running_threads)==0)
             {
-                Console.WriteLine("=======================================");
-                Console.WriteLine(" ---  Done !! ---");
+                Console.WriteLine("");
+                Console.WriteLine("==================================================================");
+                Console.WriteLine("                         ---  Done !! ---");
             }
         }
 
-        //public int Current_Counter()
-        //{
-        //    if((end_address - Ccount)>=0)
-        //    {
-        //        return Ccount++;
-        //    }
-        //    return -1;
-        //}
-
+    
         public string Current_Counter()
         {
             if((end_sub - Subcount) >=0 )
@@ -211,21 +195,5 @@ namespace khra_scan
 
             client.Close();
         }
-
-        public void test()
-        {
-            try
-            {
-                Console.WriteLine("testing");
-                Connect("192.168.1.8", 135, 5);
-
-            }
-            catch(Exception x)
-            {
-                Console.WriteLine("SHIIT:  " + x.Message) ;
-            }
-        }
-
-        
     }
 }
