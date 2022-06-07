@@ -17,7 +17,7 @@ khra-scan.exe 200 192.168. 135 235 1 254 445 3
 ```
 # release and usage :
 
-drop the khra-scan.exe on one a machine you have a shell on and use the args above to start the scan.
+drop the khra-scan.exe on a machine you have a shell on and use the args above to start the scan.
 
 i highly recommand compiling your own executables from code in VS studio :
 
