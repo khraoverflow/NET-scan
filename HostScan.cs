@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Net.Sockets;
+using System.Net;
 
 namespace khra_scan
 {
@@ -58,7 +59,7 @@ namespace khra_scan
         public void scan()
         {
 
-          
+            IPAddress ip;
             string current;
 
             while ((current = Current_Counter()) != "f")
@@ -69,6 +70,12 @@ namespace khra_scan
               
                 try
                 {
+                    if(!IPAddress.TryParse( subnet + current,out ip))
+                    {
+                        Console.WriteLine(" [!] provided address range is not valid");
+                        Environment.Exit(0);
+                    }
+                   
                     Connect(subnet + current, port, timeout);
                 }
                 catch
@@ -89,21 +96,23 @@ namespace khra_scan
         }
 
       
-
+        string result;
         public string Current_Counter()
         {
             if((end_sub - Subcount) >=0 )
             {
                 if ((end_address - Ccount) > 0)
                 {
+                    result = Subcount.ToString() + "." + Ccount.ToString();
                     Ccount++;
-                    return Subcount.ToString() + "." + Ccount.ToString();
+                    return result;
                 }
                 else if ((end_address - Ccount) ==0)
                 {
+                    result = Subcount.ToString() + "." + Ccount.ToString();
                     Ccount = start_address;
                     Subcount++;
-                    return Subcount.ToString() + "." + Ccount.ToString();
+                    return result;
                 }
             }
             

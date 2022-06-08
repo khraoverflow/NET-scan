@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Xml.Serialization;
@@ -13,8 +14,14 @@ namespace khra_scan
     {
 
         static int thread_count = 100;
+        static string range;
+        static string subnet;
+        static string start_sub;
+        static string end_sub;
         static string start_address;
         static string end_address;
+
+        
         static int port;
         static int timeout;
 
@@ -22,9 +29,12 @@ namespace khra_scan
         static void Main(string[] args)
         {
 
-            ParamsName.Add("-th","Thread count");
-            ParamsName.Add("-p","Port number to scan for");
-            ParamsName.Add("-t","timeout ");
+            ParamsName.Add("-th","Thread count, default 200");
+            ParamsName.Add("-p","Port number to scan for in hosts discovery mode");
+            ParamsName.Add("-t","timeout in seconds , default 2s");
+            ParamsName.Add("-r","range to scan in hosts scan mode, exemple 10.0.128-254.1-254");
+            ParamsName.Add("-i","ip address of the target host to scan ");
+            ParamsName.Add("-pr","ports range to scan on port scanner mode, default 1-65535");
 
             Console.WriteLine("==================================================================");
             Console.WriteLine("                  ----     NET scanner     ----");
@@ -52,7 +62,13 @@ namespace khra_scan
    
 
             //scanner.start(int.Parse(args[0]));
+            if (args.Length == 0)
+            {
+                ShowHelp();
+                Environment.Exit(0);
+            }
             ParseMode(args);
+            //HostScanner();
         }
 
         static void ParseMode(string[] args)
@@ -79,11 +95,45 @@ namespace khra_scan
                     break;
                 case "-h" :
                 case "--help":
-                    Console.WriteLine("show help msg");
+                    ShowHelp();
+                    break;
+                case "-test":
+                    Debugging(args);
                     break;
                 default:
                     Console.WriteLine("command {0} not found try -h or--help",args[0]);
                     break;
+            }
+        }
+
+        static void Debugging(string[] args)
+        {
+            range = ParamValue(args,"-r",true,"0");
+               //TESTS
+            Console.WriteLine("threads: " + thread_count);
+            Console.WriteLine("port: " + port);
+            Console.WriteLine("timeout: " + timeout);
+            //Console.WriteLine("range: " + range);
+
+        }
+        static void ShowHelp()
+        {
+            
+            Console.WriteLine("                       Hosts discovery mode ");
+            Console.WriteLine("     use 'khra-scan.exe hosts' to scan for hosts with the following arguments: ");
+            Console.WriteLine("");
+            Console.WriteLine("     command exemple: ");
+            Console.WriteLine("     khra-scan.exe hosts -r 192.168.1-2.1-254 -p 445");
+            Console.WriteLine("     => scans from 192.168.1.1 to 192.168.2.254");
+            Console.WriteLine("        on port 445");
+            Console.WriteLine("        with 200 threads (default)");
+            Console.WriteLine("        2 seconds timeout (default)");
+            Console.WriteLine("------------------------------------------------------------------");
+            Console.WriteLine("                         argumentes");
+            Console.WriteLine("");
+            foreach (var param in ParamsName)
+            {
+                Console.WriteLine("  " + param.Key + "  " + param.Value);
             }
         }
 
@@ -114,17 +164,18 @@ namespace khra_scan
             }
             //range 
 
-            //TESTS
-            Console.WriteLine("threads: " + thread_count);
-            Console.WriteLine("port: " + port);
-            Console.WriteLine("timeout: " + timeout);
-            //Console.WriteLine("range: " + range);
+             
+            ParseRange(ParamValue(args,"-r",true,"0"));
+
+
+         
 
         }
 
         static void HostScanner()
         {
-
+            HostScan scanner = new HostScan(subnet,start_sub,end_sub,start_address,end_address,port,timeout);
+            scanner.start(thread_count);
         }
 
         static void PortScanner()
@@ -138,12 +189,40 @@ namespace khra_scan
             {
                 if(IsMand)
                 {
-                    Console.WriteLine(" [!] Failed to find mandotory argument {0} for {1}",param, ParamsName[param]);
+                    Console.WriteLine(" [!] Failed to find mandotory argument {0} for: {1}",param, ParamsName[param]);
                     Environment.Exit(0);
                 }
                return def;
             }
             return args[Array.IndexOf(args,param) + 1];
+        }
+
+        static void ParseRange(string range)
+        {
+            // stupid but works ? aint stupid ...lazy ? maybe xD
+            try
+            {
+                subnet = range.Split('.')[0]+'.'+range.Split('.')[1]+'.';
+                start_address = range.Split('.')[3].Split('-')[0];
+                end_address = range.Split('.')[3].Split('-')[1];
+                if(range.Split('.')[2].Contains('-'))
+                {
+                    start_sub = range.Split('.')[2].Split('-')[0];
+                    end_sub = range.Split('.')[2].Split('-')[1];
+                }
+                else
+                {
+                    start_sub =  end_sub = range.Split('.')[2];
+                   
+                }
+               
+                
+            }
+            catch
+            {
+                Console.WriteLine(" [!] address range wrong check help for correct format");
+            }
+            
         }
     }
 }

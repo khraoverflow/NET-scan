@@ -3,18 +3,22 @@
 
 scans a subnet range for a specific port and report hosts having that port open
  
-khra-scan.exe int threads, string Subnet,string start_sub, string end_sub ,string start_address,string end_address,int port,int timeout
+ simple exemple command:
+ khra-scan hosts -r 192.168.1-2.1-254 -p 445
 
 exemple :
-khra-scan.exe 200 192.168. 135 235 1 254 445 3
+khra-scan.exe hosts -r 192.168.1-2.1-254 -p 445 -th 100 -t 5
+
 
 ```
-=> scans :
-    with 200 threads
+=> scans from 192.168.1.1 to 192.168.2.254:
+    with 100 threads
     from 192.168.135.1 to 168.235.254 
     port 445
-    timeout 3 seconds
+    5 seconds timeout
 ```
+less threads , more timeout = more accurate results
+
 # release and usage :
 
 drop the khra-scan.exe on a machine you have a shell on and use the args above to start the scan.
