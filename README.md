@@ -5,7 +5,7 @@ scans a subnet range for a specific port and report hosts having that port open
  
  simple exemple command:
  ```
- khra-scan hosts -r 192.168.1.1-254 -p 445
+ khra-scan.exe hosts -r 192.168.1.1-254 -p 445
  ```
 
 exemple :
