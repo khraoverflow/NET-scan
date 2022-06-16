@@ -1,12 +1,7 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Net;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Xml.Serialization;
+
 
 namespace khra_scan
 {
@@ -30,10 +25,10 @@ namespace khra_scan
         {
 
             ParamsName.Add("-th","Thread count, default 200");
-            ParamsName.Add("-p","Port number to scan for in hosts discovery mode");
+            ParamsName.Add("-p","the Port number to scan for in hosts discovery mode");
             ParamsName.Add("-t","timeout in seconds , default 2s");
             ParamsName.Add("-r","range to scan in hosts scan mode, exemple 10.0.128-254.1-254");
-            ParamsName.Add("-i","ip address of the target host to scan ");
+            ParamsName.Add("-h","ip address of the target host to scan ");
             ParamsName.Add("-pr","ports range to scan on port scanner mode, default 1-65535");
 
             Console.WriteLine("==================================================================");

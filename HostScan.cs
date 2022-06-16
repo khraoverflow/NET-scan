@@ -104,18 +104,19 @@ namespace khra_scan
                 if ((end_address - Ccount) > 0)
                 {
                     result = Subcount.ToString() + "." + Ccount.ToString();
-                    Ccount++;
+                    Interlocked.Increment(ref Ccount);
                     return result;
                 }
-                else if ((end_address - Ccount) ==0)
+                else if ((end_address - Ccount) <= 0)
                 {
                     result = Subcount.ToString() + "." + Ccount.ToString();
                     Ccount = start_address;
-                    Subcount++;
+                    Interlocked.Increment(ref Subcount);
+                    Console.WriteLine(" at: " + result+" ... ");
                     return result;
                 }
             }
-            
+
             return "f";
         }
 
