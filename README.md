@@ -35,7 +35,6 @@ and NET 4.5 for windows 10
 BUT .. as some are lazy enough to not do that and willing to run a random .exe from the internet there's the release folder.
  
 # todo list:
-- clean the ugliness (made in few minutes in a hurry sorry xD)
+- clean the ugliness (made in few minutes in a hurry so sorry xD)
 - scan from CIDR
 - add port scan
-- make as dll for dynamic assembly loading
