@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Net;
 
 namespace khra_scan
 {
@@ -15,7 +15,7 @@ namespace khra_scan
         static string end_sub;
         static string start_address;
         static string end_address;
-
+        static IPAddress host;
         
         static int port;
         static int timeout;
@@ -84,8 +84,8 @@ namespace khra_scan
                     HostScanner();
                     break;
                 case "ports":
-                    Console.WriteLine("starting port scanner On REPLACE THIS :");
-                    ParseParamVal(args);
+                    Console.WriteLine("starting port scanner :");
+                    ParseParamForPortScan(args);
                     PortScanner();
                     break;
                 case "-h" :
@@ -96,7 +96,7 @@ namespace khra_scan
                     Debugging(args);
                     break;
                 default:
-                    Console.WriteLine("command {0} not found try -h or--help",args[0]);
+                    Console.WriteLine("mode {0} not found try -h or--help",args[0]);
                     break;
             }
         }
@@ -146,7 +146,7 @@ namespace khra_scan
             
             
             //port
-            if(!int.TryParse(ParamValue(args,"-p",true,"0"),out port))
+            if(!int.TryParse(ParamValue(args,"-p",false,"0"),out port))
             {
                 Console.WriteLine(" [!] port number must be integer");
                 Environment.Exit(0);
@@ -159,12 +159,45 @@ namespace khra_scan
             }
             //range 
 
-             
-            ParseRange(ParamValue(args,"-r",true,"0"));
+            ParseRange(ParamValue(args,"-r",false,"0"));
 
-
+            
          
 
+        }
+
+        private static void ParseParamForPortScan(string[] args)
+        {
+            /*Console.WriteLine("threads: " + ParamValue(args,"-Th"));
+            Console.WriteLine("range: " + ParamValue(args,"-R"));*/
+
+            //thread count
+            if (!int.TryParse(ParamValue(args, "-th", false, "200"), out thread_count))
+            {
+                Console.WriteLine(" [!] thread count should be an integer");
+                Environment.Exit(0);
+            }
+
+            //port
+            if (!int.TryParse(ParamValue(args, "-p", false, "0"), out port))
+            {
+                Console.WriteLine(" [!] port number must be integer");
+                Environment.Exit(0);
+            }
+
+            //host
+            if (!IPAddress.TryParse(ParamValue(args, "-h", false, "0"), out host))
+            {
+                Console.WriteLine(" [!] host address not valid");
+                Environment.Exit(0);
+            }
+
+            //timeout
+            if (!int.TryParse(ParamValue(args, "-t", false, "2"), out timeout))
+            {
+                Console.WriteLine(" [!] timeoute number must be integer");
+                Environment.Exit(0);
+            }
         }
 
         static void HostScanner()
@@ -175,10 +208,11 @@ namespace khra_scan
 
         static void PortScanner()
         {
-
+            PortScan scanner = new PortScan(host.ToString(), port, thread_count, timeout);
+            scanner.start();
         }
 
-        static string ParamValue(string[] args,string param,bool IsMand,string def)
+        static string ParamValue(string[] args,string param,bool IsMand,string deflt)
         {
             if(Array.IndexOf(args,param) == -1 )
             {
@@ -187,7 +221,7 @@ namespace khra_scan
                     Console.WriteLine(" [!] Failed to find mandotory argument {0} for: {1}",param, ParamsName[param]);
                     Environment.Exit(0);
                 }
-               return def;
+               return deflt;
             }
             return args[Array.IndexOf(args,param) + 1];
         }

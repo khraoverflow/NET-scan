@@ -5,3 +5,10 @@ C:\Users\brahmi\source\repos\NET-scan\obj\Debug\khra-scan.csproj.AssemblyReferen
 C:\Users\brahmi\source\repos\NET-scan\obj\Debug\khra-scan.csproj.CoreCompileInputs.cache
 C:\Users\brahmi\source\repos\NET-scan\obj\Debug\khra-scan.exe
 C:\Users\brahmi\source\repos\NET-scan\obj\Debug\khra-scan.pdb
+D:\Projects\new black\projects\github\NET-scan\bin\Debug\khra-scan.exe.config
+D:\Projects\new black\projects\github\NET-scan\bin\Debug\khra-scan.exe
+D:\Projects\new black\projects\github\NET-scan\bin\Debug\khra-scan.pdb
+D:\Projects\new black\projects\github\NET-scan\obj\Debug\khra-scan.csproj.AssemblyReference.cache
+D:\Projects\new black\projects\github\NET-scan\obj\Debug\khra-scan.csproj.CoreCompileInputs.cache
+D:\Projects\new black\projects\github\NET-scan\obj\Debug\khra-scan.exe
+D:\Projects\new black\projects\github\NET-scan\obj\Debug\khra-scan.pdb
