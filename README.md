@@ -5,12 +5,12 @@ scans a subnet range for a specific port and report hosts having that port open
  
  simple exemple command:
  ```
- khra-scan.exe hosts -r 192.168.1.1-254 -p 445
+ net-scan.exe hosts -r 192.168.1.1-254 -p 445
  ```
 
 exemple :
 ```
-khra-scan.exe hosts -r 192.168.1-2.1-254 -p 445 -th 100 -t 5
+net-scan.exe hosts -r 192.168.1-2.1-254 -p 445 -th 100 -t 5
 ```
 
 ```
@@ -24,7 +24,7 @@ less threads , more timeout = more accurate results
 
 # release and usage :
 
-drop the khra-scan.exe on a machine you have a shell on and use the args above to start the scan.
+drop the net-scan.exe on a machine you have a shell on and use the args above to start the scan.
 
 i highly recommand compiling your own executables from code in VS :
 

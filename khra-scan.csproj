@@ -7,7 +7,7 @@
     <ProjectGuid>{521D00C9-225F-426F-A031-06391CC008A9}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>khra_scan</RootNamespace>
-    <AssemblyName>khra-scan</AssemblyName>
+    <AssemblyName>NET-scan</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

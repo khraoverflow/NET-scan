@@ -10,10 +10,10 @@ C:\Users\brahmi\source\repos\NET-scan\obj\Release\khra-scan.exe
 C:\Users\brahmi\source\repos\NET-scan\obj\Release\khra-scan.pdb
 C:\Users\brahmi\source\repos\NET-scan\bin\Release\khra-scan.exe.config
 C:\Users\brahmi\source\repos\NET-scan\obj\Release\khra-scan.csproj.AssemblyReference.cache
-D:\Projects\new black\projects\github\NET-scan\bin\Release\khra-scan.exe.config
-D:\Projects\new black\projects\github\NET-scan\bin\Release\khra-scan.exe
-D:\Projects\new black\projects\github\NET-scan\bin\Release\khra-scan.pdb
 D:\Projects\new black\projects\github\NET-scan\obj\Release\khra-scan.csproj.AssemblyReference.cache
 D:\Projects\new black\projects\github\NET-scan\obj\Release\khra-scan.csproj.CoreCompileInputs.cache
-D:\Projects\new black\projects\github\NET-scan\obj\Release\khra-scan.exe
-D:\Projects\new black\projects\github\NET-scan\obj\Release\khra-scan.pdb
+D:\Projects\new black\projects\github\NET-scan\bin\Release\NET-scan.exe.config
+D:\Projects\new black\projects\github\NET-scan\bin\Release\NET-scan.exe
+D:\Projects\new black\projects\github\NET-scan\bin\Release\NET-scan.pdb
+D:\Projects\new black\projects\github\NET-scan\obj\Release\NET-scan.exe
+D:\Projects\new black\projects\github\NET-scan\obj\Release\NET-scan.pdb

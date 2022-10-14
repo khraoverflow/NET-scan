@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace khra_scan
+namespace net_scan
 {
     class Program
     {
@@ -146,7 +146,7 @@ namespace khra_scan
             
             
             //port
-            if(!int.TryParse(ParamValue(args,"-p",false,"0"),out port))
+            if(!int.TryParse(ParamValue(args,"-p",true,"0"),out port))
             {
                 Console.WriteLine(" [!] port number must be integer");
                 Environment.Exit(0);
@@ -159,7 +159,7 @@ namespace khra_scan
             }
             //range 
 
-            ParseRange(ParamValue(args,"-r",false,"0"));
+            ParseRange(ParamValue(args,"-r",true,"0"));
 
             
          
@@ -179,14 +179,14 @@ namespace khra_scan
             }
 
             //port
-            if (!int.TryParse(ParamValue(args, "-p", false, "0"), out port))
+            if (!int.TryParse(ParamValue(args, "-p", true, "0"), out port))
             {
                 Console.WriteLine(" [!] port number must be integer");
                 Environment.Exit(0);
             }
 
             //host
-            if (!IPAddress.TryParse(ParamValue(args, "-h", false, "0"), out host))
+            if (!IPAddress.TryParse(ParamValue(args, "-h", true, "0"), out host))
             {
                 Console.WriteLine(" [!] host address not valid");
                 Environment.Exit(0);

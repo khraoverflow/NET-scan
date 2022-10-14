@@ -6,7 +6,7 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Net;
 
-namespace khra_scan
+namespace net_scan
 {
     class HostScan
     {
