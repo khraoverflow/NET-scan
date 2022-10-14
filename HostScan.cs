@@ -97,28 +97,33 @@ namespace khra_scan
 
       
         string result;
+        private static readonly object lck = new object();
         public string Current_Counter()
         {
-            if((end_sub - Subcount) >=0 )
+            lock(lck)
             {
-                if ((end_address - Ccount) > 0)
+                if ((end_sub - Subcount) >= 0)
                 {
-                    result = Subcount.ToString() + "." + Ccount.ToString();
-                    Interlocked.Increment(ref Ccount);
-                    return result;
+                    if ((end_address - Ccount) > 0)
+                    {
+                        result = Subcount.ToString() + "." + Ccount.ToString();
+                        Interlocked.Increment(ref Ccount);
+                        return result;
+                    }
+                    else if ((end_address - Ccount) <= 0)
+                    {
+                        result = Subcount.ToString() + "." + Ccount.ToString();
+                        Ccount = start_address;
+                        Interlocked.Increment(ref Subcount);
+                        Console.WriteLine(" at: " + result + " ... ");
+                        return result;
+                    }
                 }
-                else if ((end_address - Ccount) <= 0)
-                {
-                    result = Subcount.ToString() + "." + Ccount.ToString();
-                    Ccount = start_address;
-                    Interlocked.Increment(ref Subcount);
-                    Console.WriteLine(" at: " + result+" ... ");
-                    return result;
-                }
-            }
 
-            return "f";
+                return "f";
+            }
         }
+
 
         public int sub_counter()
         {
