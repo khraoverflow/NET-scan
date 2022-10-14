@@ -3,11 +3,25 @@
 
 scans a subnet range for a specific port and report hosts having that port open
  
- simple exemple command:
+ simple exemple commands:
  ```
  net-scan.exe hosts -r 192.168.1.1-254 -p 445
  ```
+ ```
+ khra-scan.exe ports -h 192.168.1.5 -p 5000 
+ ```
+## port scanner :
+```
+khra-scan.exe ports -h 192.168.1.5 -p 5000 -th 300 -t 1
+```
 
+```
+=> scans ports on 192.168.1.5:
+    first 5000 ports
+    with 300 threads
+    1s timeout
+```
+## host discovery / scanner:
 exemple :
 ```
 net-scan.exe hosts -r 192.168.1-2.1-254 -p 445 -th 100 -t 5
@@ -21,6 +35,7 @@ net-scan.exe hosts -r 192.168.1-2.1-254 -p 445 -th 100 -t 5
     5 seconds timeout
 ```
 less threads , more timeout = more accurate results
+
 
 # release and usage :
 
