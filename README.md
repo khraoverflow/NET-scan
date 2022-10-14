@@ -38,3 +38,4 @@ BUT .. as some are lazy enough to not do that and willing to run a random .exe f
 - clean the ugliness (made in few minutes in a hurry so sorry xD)
 - scan from CIDR
 - add port scan
+- fix compareExchange
