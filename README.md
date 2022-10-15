@@ -8,11 +8,11 @@ scans a subnet range for a specific port and report hosts having that port open
  net-scan.exe hosts -r 192.168.1.1-254 -p 445
  ```
  ```
- khra-scan.exe ports -h 192.168.1.5 -p 5000 
+ net-scan.exe ports -h 192.168.1.5 -p 5000 
  ```
 ## port scanner :
 ```
-khra-scan.exe ports -h 192.168.1.5 -p 5000 -th 300 -t 1
+net-scan.exe ports -h 192.168.1.5 -p 5000 -th 300 -t 1
 ```
 
 ```
@@ -53,3 +53,4 @@ BUT .. as some are lazy enough to not do that and willing to run a random .exe f
 - clean the ugliness (made in few minutes in a hurry so sorry xD)
 - scan from CIDR
 - add port scan
+- i'll add wtf
