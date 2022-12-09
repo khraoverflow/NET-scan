@@ -34,7 +34,7 @@ namespace net_scan
             if (!IPAddress.TryParse(host, out ip))
             {
                 Console.WriteLine(" [!] provided address is not valid");
-                Environment.Exit(0);
+                return;
             }
             this.start_port = 0;
             this.timeout = timeout;

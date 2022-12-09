@@ -60,7 +60,7 @@ namespace net_scan
             if (args.Length == 0)
             {
                 ShowHelp();
-                Environment.Exit(0);
+                return;
             }
             ParseMode(args);
             //HostScanner();
@@ -73,7 +73,7 @@ namespace net_scan
               /*if(args.Length < 8)
             {
                 Console.WriteLine("arguments error");
-                Environment.Exit(0);
+                return;
             }*/
 
             switch (mode)
@@ -141,7 +141,7 @@ namespace net_scan
             if (!int.TryParse(ParamValue(args,"-th",false,"200"),out thread_count))
             {
                 Console.WriteLine(" [!] thread count should be an integer");
-                Environment.Exit(0);
+                return;
             }
             
             
@@ -149,13 +149,13 @@ namespace net_scan
             if(!int.TryParse(ParamValue(args,"-p",true,"0"),out port))
             {
                 Console.WriteLine(" [!] port number must be integer");
-                Environment.Exit(0);
+                return;
             }
             //timeout
             if(!int.TryParse(ParamValue(args,"-t",false,"2"),out timeout))
             {
                 Console.WriteLine(" [!] timeoute number must be integer");
-                Environment.Exit(0);
+                return;
             }
             //range 
 
@@ -175,28 +175,28 @@ namespace net_scan
             if (!int.TryParse(ParamValue(args, "-th", false, "200"), out thread_count))
             {
                 Console.WriteLine(" [!] thread count should be an integer");
-                Environment.Exit(0);
+                return;
             }
 
             //port
             if (!int.TryParse(ParamValue(args, "-p", true, "0"), out port))
             {
                 Console.WriteLine(" [!] port number must be integer");
-                Environment.Exit(0);
+                return;
             }
 
             //host
             if (!IPAddress.TryParse(ParamValue(args, "-h", true, "0"), out host))
             {
                 Console.WriteLine(" [!] host address not valid");
-                Environment.Exit(0);
+                return;
             }
 
             //timeout
             if (!int.TryParse(ParamValue(args, "-t", false, "2"), out timeout))
             {
                 Console.WriteLine(" [!] timeoute number must be integer");
-                Environment.Exit(0);
+                return;
             }
         }
 
@@ -219,7 +219,7 @@ namespace net_scan
                 if(IsMand)
                 {
                     Console.WriteLine(" [!] Failed to find mandotory argument {0} for: {1}",param, ParamsName[param]);
-                    Environment.Exit(0);
+                    return"";
                 }
                return deflt;
             }

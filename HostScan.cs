@@ -73,7 +73,7 @@ namespace net_scan
                     if(!IPAddress.TryParse( subnet + current,out ip))
                     {
                         Console.WriteLine(" [!] provided address range is not valid");
-                        Environment.Exit(0);
+                        return;
                     }
                    
                     Connect(subnet + current, port, timeout);
