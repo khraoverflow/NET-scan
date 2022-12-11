@@ -1,3 +1,18 @@
-obj/ 
-bin/ 
 
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+dotnetwarp_temp/
+Optimize/
+_/
+.vs/
+.vscode/
+*.user
+*.userprefs
+bin/Debug/Local State
