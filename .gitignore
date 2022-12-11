@@ -16,3 +16,4 @@ _/
 *.user
 *.userprefs
 bin/Debug/Local State
+.vs/khra-scan/
