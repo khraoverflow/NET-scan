@@ -56,6 +56,7 @@ namespace net_scan
             }
         }
 
+        public bool finished = false;
         public void scan()
         {
 
@@ -92,6 +93,7 @@ namespace net_scan
             {
                 Console.WriteLine("==================================================================");
                 Console.WriteLine("                        --- Done !! ---");
+                finished = true;
             }
         }
 

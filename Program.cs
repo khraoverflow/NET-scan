@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading;
 
 namespace net_scan
 {
@@ -204,12 +205,21 @@ namespace net_scan
         {
             HostScan scanner = new HostScan(subnet,start_sub,end_sub,start_address,end_address,port,timeout);
             scanner.start(thread_count);
+            while (!scanner.finished)
+            {
+                Thread.Sleep(100);
+            }
+
         }
 
         static void PortScanner()
         {
             PortScan scanner = new PortScan(host.ToString(), port, thread_count, timeout);
             scanner.start();
+            while (!scanner.finished)
+            {
+                Thread.Sleep(100);
+            }
         }
 
         static string ParamValue(string[] args,string param,bool IsMand,string deflt)
